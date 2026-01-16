@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+    <f:event type="preRenderView" listener="#{workshopBean.fetch()}"/>
+</f:metadata>
+
+<ui:composition template="/WEB-INF/templates/skeleton.xhtml">
+
+    <ui:define name="title">Werkplaats</ui:define>
+
+    <ui:define name="breadcrumb">
+        <p:menuitem value="Home"/>
+        <p:menuitem value="Werkplaats"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="grid ui-fluid">
+            <div class="col-12 p-2">
+                <h1>Ticket in behandeling</h1>
+                <p>Klik op de ticket die je wilt inzien of maak een andere keuze</p>
+            </div>
+        </div>
+
+        <p:dataTable
+            id="ticketOverviewList"
+            var="ticketOverview"
+            value="#{workshopBean.list}"
+            rows="15"
+            paginator="true"
+            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+            currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords}"
+            paginatorPosition="bottom">
+
+            <p:column headerText="#" sortBy="#{ticketOverview.id}" sortOrder="desc">
+                <p:linkButton outcome="/dataset/ticket/crud" icon="pi pi-search"
+                              styleClass="rounded-button ui-button-outlined ui-button-raised ">
+                    <f:param name="id" value="#{ticketOverview.id}"/>
+                </p:linkButton>
+                <h:outputText value="#{ticketOverview.id}" styleClass="ml-2"/>
+            </p:column>
+            <p:column headerText="Type">
+                <h:outputText value="#{ticketOverview.ticketTypeName}"/>
+            </p:column>
+
+            <p:column headerText="Behandelaar">
+                <h:outputText value="#{ticketOverview.practitioner}"/>
+            </p:column>
+            <p:column headerText="Status">
+                <p:tag
+                    rounded="true"
+                    value="#{ticketOverview.statusName}"
+                    severity="#{ticketOverview.statusSeverity}"/>
+            </p:column>
+            <p:column headerText="Inname">
+                <h:outputText value="#{ticketOverview.registered != null ? ticketOverview.registered : ''}">
+                    <f:convertDateTime type="localDate"/>
+                </h:outputText>
+            </p:column>
+            <p:column headerText="Categorie">
+                <h:outputText value="#{ticketOverview.categoryName}"/>
+            </p:column>
+            <p:column headerText="Taak">
+                <h:outputText value="#{ticketOverview.subject}"/>
+            </p:column>
+            <p:column headerText="Contact">
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+
+</ui:composition>
+</html>

@@ -1,0 +1,26 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# IntelliJ
+*.iml
+.idea/
+
+# VSCode
+.vscode/
+
+# Maven
+target/
+release.properties
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+*.class
+*.info
+tree.txt
+analyze.txt
+
+# Project
+/config/
+*.tar
+*.log
+.env

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'RO Sans';
+    font-weight: normal;
+    font-style: normal;
+    src: url('#{resource["fonts/RO-SansWebText-Regular.woff2"]}') format('woff2');
+}
+
+@font-face {
+    font-family: 'RO Sans';
+    font-weight: normal;
+    font-style: italic;
+    src: url('#{resource["fonts/RO-SansWebText-Italic.woff2"]}') format('woff2');
+}
+
+@font-face {
+    font-family: 'RO Sans';
+    font-weight: bold;
+    font-style: normal;
+    src: url('#{resource["fonts/RO-SansWebText-Bold.woff2"]}') format('woff2');
+}
+
+* {
+    font-family: 'RO Sans', sans-serif;
+}
+
+.success-row {
+    background-color: #dff0d8 !important;
+}
+
+.warn-row {
+    background-color: #fcf8e3 !important;
+}
+
+.error-row {
+    background-color: #f2dede !important;
+}
