@@ -11,7 +11,8 @@ public enum EquipmentStatus {
     SUITABLE_FOR_GIFT("Geschikt voor uitgave"),
     RESERVED("Gereserveerd"),
     GIFT_ISSUED("Geschenk uitgegeven"),
-    DEMOLITION("Sloop");
+    DEMOLITION("Sloop"),
+    SOLD("Verkocht");
 
     private final String label;
 }

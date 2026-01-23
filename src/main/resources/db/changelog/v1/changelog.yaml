@@ -44,6 +44,12 @@ databaseChangeLog:
   - include:
       relativeToChangelogFile: true
       file: schema/ticket_details.sql
+  - include:
+      relativeToChangelogFile: true
+      file: schema/proof_of_issues.sql
+  - include:
+      relativeToChangelogFile: true
+      file: schema/proof_of_issue_lines.sql
 
   # --------------------------------------------------------------------------------------------------------------------
   #  VIEWS
