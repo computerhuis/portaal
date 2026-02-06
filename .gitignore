@@ -6,9 +6,6 @@ Thumbs.db
 *.iml
 .idea/
 
-# VSCode
-.vscode/
-
 # Maven
 target/
 release.properties
