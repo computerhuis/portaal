@@ -21,3 +21,4 @@ analyze.txt
 *.tar
 *.log
 .env
+_env
